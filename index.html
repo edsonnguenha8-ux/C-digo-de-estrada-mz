@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="pt">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#123c32">
+<title>Código de Estrada MZ</title>
+<link rel="manifest" href="manifest.json">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="topbar">
+  <div class="brandmark">🚦</div>
+  <div><strong>CÓDIGO DE ESTRADA MZ</strong><small>Aprende hoje. Conduz com segurança.</small></div>
+</header>
+<main>
+  <section id="home" class="screen active">
+    <div class="hero">
+      <span class="eyebrow">PREPARAÇÃO PARA O EXAME</span>
+      <h1>Aprende as regras.<br><em>Passa com confiança.</em></h1>
+      <p>Estuda os sinais, pratica com exames e acompanha o teu progresso.</p>
+      <button class="primary" onclick="showScreen('learn')">Começar a estudar →</button>
+    </div>
+    <div class="stats"><div><b>25</b><span>perguntas por exame</span></div><div><b>30 min</b><span>tempo por exame</span></div><div><b>130 dias</b><span>acesso Premium</span></div></div>
+    <h2>O que queres fazer?</h2>
+    <div class="tiles">
+      <button class="tile" onclick="showScreen('learn')"><span>📘</span><b>Aprender</b><small>Regras e conceitos</small></button>
+      <button class="tile" onclick="showScreen('signs')"><span>🚸</span><b>Sinais de trânsito</b><small>Conhece os sinais</small></button>
+      <button class="tile" onclick="showScreen('free')"><span>📝</span><b>Exames gratuitos</b><small>Pratica sem pagar</small></button>
+      <button class="tile premium" onclick="showScreen('premium')"><span>🔒</span><b>Exames Premium</b><small>Desbloqueia por 200 MT</small></button>
+    </div>
+    <div class="notice">🇲🇿 Conteúdos de apoio à preparação para o exame de condução em Moçambique.</div>
+  </section>
+
+  <section id="learn" class="screen">
+    <button class="back" onclick="showScreen('home')">← Início</button>
+    <h1>Aprender</h1><p class="muted">Começa por estes temas e confirma sempre as regras no material oficial do INATRO.</p>
+    <article class="content-card"><span class="icon">🛣️</span><h3>Regras de circulação</h3><p>Respeita a sinalização, mantém uma distância segura e adapta a velocidade às condições da via.</p></article>
+    <article class="content-card"><span class="icon">🦺</span><h3>Condução defensiva</h3><p>Observa o ambiente, antecipa riscos, evita distrações e nunca conduzas sob efeito de álcool.</p></article>
+    <article class="content-card"><span class="icon">🚶</span><h3>Peões e cruzamentos</h3><p>Reduz a velocidade ao aproximar-te de passadeiras e cruzamentos; presta atenção aos utilizadores vulneráveis.</p></article>
+  </section>
+
+  <section id="signs" class="screen">
+    <button class="back" onclick="showScreen('home')">← Início</button>
+    <h1>Sinais de trânsito</h1><p class="muted">Exemplos de categorias. A biblioteca completa deve ser revista com material oficial.</p>
+    <div class="sign-grid">
+      <article class="sign-card"><div class="sign stop">STOP</div><b>Paragem obrigatória</b><small>Imobiliza o veículo e avança apenas em segurança.</small></article>
+      <article class="sign-card"><div class="sign warning">!</div><b>Perigo</b><small>Reduz a velocidade e prepara-te para a situação indicada.</small></article>
+      <article class="sign-card"><div class="sign circle">50</div><b>Limite de velocidade</b><small>Respeita o limite indicado e as condições da via.</small></article>
+      <article class="sign-card"><div class="sign blue">P</div><b>Estacionamento</b><small>Confirma as regras e restrições locais.</small></article>
+    </div>
+  </section>
+
+  <section id="free" class="screen">
+    <button class="back" onclick="showScreen('home')">← Início</button>
+    <h1>Exames gratuitos</h1><p class="muted">Faz um teste de prática. As perguntas abaixo são exemplos de demonstração.</p>
+    <article class="content-card"><h3>Exame de demonstração</h3><p>25 perguntas de prática selecionadas de um conjunto de exemplos. O conteúdo ainda deve ser revisto com material oficial do INATRO.</p><button class="primary" onclick="startExam(false)">Iniciar exame →</button></article>
+  </section>
+
+  <section id="premium" class="screen">
+    <button class="back" onclick="showScreen('home')">← Início</button>
+    <div class="premium-hero"><span class="lock">🔐</span><span class="eyebrow">ACESSO COMPLETO</span><h1>Exames Premium</h1><div class="price">200 <small>MT</small></div><p>Todos os exames • 25 perguntas por exame • 30 minutos • acesso por 130 dias após validação</p></div>
+    <div class="content-card"><h3>Como desbloquear</h3><ol><li>Carrega no botão para mostrar os dados de pagamento.</li><li>Envia 200 MT pelo M-Pesa.</li><li>Guarda a referência da transação.</li><li>Depois de o administrador confirmar o pagamento, recebe um código individual.</li></ol><button class="primary" onclick="showPayment()">Mostrar dados de pagamento</button>
+      <div id="paymentDetails" class="payment hidden"><p><b>M-Pesa</b></p><p class="pay-number">846 435 312</p><p>Valor: <b>200 MT</b></p><p class="muted">Paga apenas se confirmares que o número pertence ao administrador do aplicativo. O acesso não é ativado automaticamente.</p></div>
+    </div>
+    <div class="content-card"><h3>Já tens um código?</h3><p class="muted">Introduz o código individual que recebeste após a confirmação do pagamento.</p><label for="accessCode">Código de desbloqueio</label><input id="accessCode" placeholder="Ex.: MZ-XXXX-XXXX" autocomplete="off"><button class="secondary" onclick="checkCode()">Validar código</button><p id="codeMessage" class="feedback" aria-live="polite"></p><p class="tiny">Nota: esta versão é uma demonstração visual. A validação segura dos códigos, o prazo de 130 dias e a prevenção de partilha exigem um servidor e uma base de dados; não introduzas aqui códigos reais de pagamento.</p></div>
+  </section>
+
+  <section id="exam" class="screen">
+    <button class="back" onclick="showScreen(examPremium ? 'premium' : 'free')">← Sair do exame</button>
+    <div class="exam-head"><div><span class="eyebrow">EXAME DE PRÁTICA</span><h1 id="examTitle">Pergunta 1</h1></div><div class="timer" id="timer">30:00</div></div>
+    <div class="progress"><div id="progressFill"></div></div>
+    <p id="questionText" class="question"></p><div id="answers" class="answers"></div>
+    <div class="exam-actions"><button class="secondary" id="prevBtn" onclick="moveQuestion(-1)">← Anterior</button><button class="primary" id="nextBtn" onclick="moveQuestion(1)">Seguinte →</button></div>
+  </section>
+
+  <section id="result" class="screen">
+    <div class="result-icon">🏁</div><h1>Exame concluído</h1><p id="resultText" class="result-text"></p><button class="primary" onclick="showScreen('home')">Voltar ao início</button>
+  </section>
+</main>
+<nav class="bottom-nav">
+  <button onclick="showScreen('home')" aria-label="Início"><span>⌂</span>Início</button>
+  <button onclick="showScreen('learn')" aria-label="Aprender"><span>📘</span>Aprender</button>
+  <button onclick="showScreen('free')" aria-label="Exames"><span>📝</span>Exames</button>
+  <button onclick="showScreen('premium')" aria-label="Premium"><span>🔒</span>Premium</button>
+</nav>
+<footer>Versão de preparação • Código de Estrada MZ</footer>
+<script src="app.js"></script>
+</body>
+</html>

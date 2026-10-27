@@ -1,0 +1,28 @@
+CÓDIGO DE ESTRADA MZ — pacote de preparação atualizado
+
+Ficheiros incluídos:
+- index.html
+- styles.css
+- app.js
+- manifest.json
+- service-worker.js
+- icon-192.png
+- icon-512.png
+
+MELHORIAS NESTA VERSÃO:
+- Exame gratuito com 25 perguntas de prática selecionadas de um conjunto de exemplos.
+- Perguntas em ordem aleatória.
+- Temporizador de 30 minutos, navegação e resultado final.
+- A validação do código Premium informa claramente que ainda não está ativa.
+
+IMPORTANTE ANTES DE PUBLICAR:
+- As perguntas são exemplos de prática, não um banco oficial de exames. Rever com o material oficial do INATRO.
+- O Premium NÃO está funcional ainda. Não aceitar pagamentos prometendo ativação automática.
+- Para ativar Premium com segurança, precisamos de um backend/servidor e base de dados para validar pagamentos, emitir códigos individuais e controlar os 130 dias.
+- Confirmar que o número M-Pesa indicado pertence ao administrador antes de o divulgar.
+- O ficheiro pode ser publicado num alojamento HTTPS estático para testar a versão gratuita; a aplicação pode ser adicionada ao ecrã inicial em navegadores compatíveis.
+
+PUBLICAÇÃO DE TESTE:
+1. Extrair todos os ficheiros do ZIP.
+2. Carregar todos os ficheiros para a raiz do alojamento.
+3. Abrir o endereço HTTPS e testar as páginas e o exame gratuito.
